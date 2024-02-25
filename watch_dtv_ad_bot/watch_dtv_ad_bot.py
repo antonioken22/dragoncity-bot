@@ -53,6 +53,7 @@ def bot_cycle():
             break
 
         tasks = [
+            (folder_location + 'give-me-prizes.png', 'Give Me Prizes! found'),
             (folder_location + 'get-rewards.png', 'Get Rewards found'),
             (folder_location + 'close-reward.png', 'Close Rewards found'),
             (folder_location + 'claim-and-watch-next.png', 'Claim And Watch Next found'),
