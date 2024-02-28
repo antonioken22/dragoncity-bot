@@ -54,21 +54,21 @@ def bot_cycle():
             break
 
         tasks = [
-            (folder_location + 'give-me-prizes.png', 'Give Me Prizes! found'),
-            (folder_location + 'get-rewards.png', 'Get Rewards found'),
-            (folder_location + 'close-reward.png', 'Close Rewards found'),
-            (folder_location + 'claim-and-watch-next.png', 'Claim And Watch Next found'),
+            (folder_location + 'give-me-prizes.png', 'Give Me Prizes! Button found'),
+            (folder_location + 'get-rewards.png', 'Get Rewards Button found'),
+            (folder_location + 'close-reward.png', 'Close Reward Button found'),
+            (folder_location + 'claim-and-watch-next.png', 'Claim And Watch Next Button found'),
             (folder_location + 'tap-to-open.png', 'Tap To Open found'),
-            (folder_location + 'claim-yellow.png', 'Claim Yellow found'),
-            (folder_location + 'claim-green.png', 'Claim Green found'),
-            (folder_location + 'close-dtv-coin.png', 'Close DTV Coin found'),
+            (folder_location + 'claim-yellow.png', 'Yellow Claim Button found'),
+            (folder_location + 'claim-green.png', 'Green Claim Button found'),
+            (folder_location + 'close-dtv-coin.png', 'Close DTV Coin Button found'),
         ]
 
         for task in tasks:
             locate_and_click(*task)
             time.sleep(uniform_delay)
 
-# Step 1: Open a Dialogue for Watch DTV Ads Bot instructions
+# Step 1: System Dialogue
 root = tk.Tk()
 root.withdraw()
 
@@ -81,14 +81,12 @@ if confirmation == 'no':
     show_options_dialog()
     sys.exit()
 
-# Step 2: Attempt to locate the Dragon TV Text
+# Step 2: Attempt to locate 
 while confirmation == 'yes':
     try:
         position = pyautogui.locateOnScreen(folder_location + 'dragon-tv.png', confidence=0.8)
         if position is not None:
             print(GREEN + f"{image_hint} is found at: {position}" + RESET)
-
-            # Import and call options related functions
             bot_cycle()
             break
     except pyautogui.ImageNotFoundException:

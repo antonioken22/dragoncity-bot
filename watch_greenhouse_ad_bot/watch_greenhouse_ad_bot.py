@@ -50,8 +50,8 @@ def bot_cycle():
     try:
         while True:
             tasks = [
-                (folder_location + 'play-ad.png', 'Play Ad found'),
-                (folder_location + 'close-reward.png', 'Close Rewards found'),
+                (folder_location + 'play-ad.png', 'Play Ad Button found'),
+                (folder_location + 'close-reward.png', 'Close Reward Button found'),
                 # (folder_location + 'greenhouse-building.png', 'Greenhouse Building found'),
                 # (folder_location + 'greenhouse-status.png', 'Greenhouse Status found'),
             ]
@@ -65,7 +65,7 @@ def bot_cycle():
         show_dialog("Keyboard interrupt received. Stopping the loop.")
         show_options_dialog()
 
-# Step 1: Open a Dialogue for Watch DTV Ads Bot instructions
+# Step 1: System Dialogue
 root = tk.Tk()
 root.withdraw()
 
@@ -78,14 +78,12 @@ if confirmation == 'no':
     show_options_dialog()
     sys.exit()
 
-# Step 2: Attempt to locate the Dragon TV Text
+# Step 2: Attempt to locate 
 while confirmation == 'yes':
     try:
         position = pyautogui.locateOnScreen(folder_location + 'greenhouse.png', confidence=0.8)
         if position is not None:
             print(GREEN + f"{image_hint} is found at: {position}" + RESET)
-
-            # Import and call options related functions
             bot_cycle()
             break
     except pyautogui.ImageNotFoundException:
