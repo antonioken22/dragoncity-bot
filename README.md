@@ -2,6 +2,10 @@
 
 A Dragon City (Windows Desktop) Bot that automates mundane tasks. Works great with 1080p desktop resolution.
 
+## Demo Video 
+
+https://youtu.be/qHgq-sve-gE?si=ugwvXKHiXPr3etn4
+
 ## Main Features
 
 - Uses `pyautogui`
