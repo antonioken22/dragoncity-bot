@@ -68,7 +68,7 @@ def bot_cycle():
             locate_and_click(*task)
             time.sleep(uniform_delay)
 
-# Step 1: System Dialogue
+# Step 1: Open a Dialogue
 root = tk.Tk()
 root.withdraw()
 

@@ -66,7 +66,7 @@ def bot_cycle():
         show_dialog("Keyboard interrupt received. Stopping the loop.")
         show_options_dialog()
 
-# Step 1: System Dialogue
+# Step 1: Open a Dialogue
 root = tk.Tk()
 root.withdraw()
 

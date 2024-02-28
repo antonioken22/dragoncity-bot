@@ -59,7 +59,7 @@ def bot_cycle():
             locate_and_click(*task)
             time.sleep(uniform_delay)
 
-# Step 1: Open a Dialogue for Watch DTV Ads Bot instructions
+# Step 1: Open a Dialogue
 root = tk.Tk()
 root.withdraw()
 
@@ -72,7 +72,7 @@ if confirmation == 'no':
     show_options_dialog()
     sys.exit()
 
-# Step 2: Attempt to locate the Dragon TV Text
+# Step 2: Attempt to locate
 while confirmation == 'yes':
     try:
         position = pyautogui.locateOnScreen(folder_location + 'hatchery-play-button.png', confidence=0.8)
