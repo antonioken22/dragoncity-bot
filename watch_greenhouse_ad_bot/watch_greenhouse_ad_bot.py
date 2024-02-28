@@ -21,15 +21,16 @@ GREEN = '\033[92m'
 RED = '\033[91m'
 RESET = '\033[0m'
 
-# Set delay cycle per tasks here
-delay = 0.5
+# Set uniform values here
+uniform_delay = 0.5
+uniform_confidence = 0.8
 
 def locate_and_click(image_path, success_message, click=True, region=None):
     try:
         if region:
-            position = pyautogui.locateOnScreen(image_path, confidence=0.8, region=region)
+            position = pyautogui.locateOnScreen(image_path, uniform_confidence, region=region)
         else:
-            position = pyautogui.locateOnScreen(image_path, confidence=0.8)
+            position = pyautogui.locateOnScreen(image_path, uniform_confidence)
 
         if position is not None:
             print(GREEN + f"Found {success_message} at: {position}" + RESET)
@@ -57,7 +58,7 @@ def bot_cycle():
 
             for task in tasks:
                 locate_and_click(*task)
-                time.sleep(delay)
+                time.sleep(uniform_delay)
 
     except KeyboardInterrupt:
         print("Keyboard interrupt received. Stopping the loop.")
