@@ -54,6 +54,11 @@ def ad_bot_cycle():
             show_dialog("Time to take a break! Next In 6 hours.")
             show_options_dialog()
             break
+        elif locate_and_click(folder_location + 'out-of-ads.png', "Out of Ads found", click=False):
+            show_dialog("No Ads this time, try again later.")
+            show_options_dialog()
+            break
+
         tasks = [
             (folder_location + 'opponent.png', 'Opponent found'),
             (folder_location + 'auto-combat-play-button.png', 'Auto Combat Play Button found'),

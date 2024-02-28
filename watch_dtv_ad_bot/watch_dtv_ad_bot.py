@@ -35,6 +35,7 @@ def locate_and_click(image_path, success_message, click=True, region=None):
         if position is not None:
             print(GREEN + f"Found {success_message} at: {position}" + RESET)
             if click:
+                time.sleep(uniform_delay)
                 pyautogui.click(position)
                 time.sleep(uniform_delay)
             return True
@@ -51,6 +52,10 @@ def bot_cycle():
     while True:
         if locate_and_click(folder_location + 'next-in-5h.png', "Next In 5h found", click=False, region=(0, 0, 725, 1020)):
             show_dialog("Time to take a break! Next In 6 hours.")
+            show_options_dialog()
+            break
+        elif locate_and_click(folder_location + 'out-of-ads.png', "Out of Ads found", click=False):
+            show_dialog("No Ads this time, try again later.")
             show_options_dialog()
             break
 

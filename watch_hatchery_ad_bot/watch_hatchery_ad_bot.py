@@ -48,6 +48,10 @@ def show_dialog(message):
 # Bot sequence of tasks
 def bot_cycle():
     while True:
+        if locate_and_click(folder_location + 'out-of-ads.png', "Out of Ads found", click=False):
+                show_dialog("No Ads this time, try again later.")
+                show_options_dialog()
+                break
         tasks = [
             (folder_location + 'hatchery-open-again.png', 'Hatchery Open Again Button found'),
             (folder_location + 'skip-6h.png', 'Skip 6h Button found'),

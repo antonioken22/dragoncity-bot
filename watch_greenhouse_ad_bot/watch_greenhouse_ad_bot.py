@@ -36,7 +36,9 @@ def locate_and_click(image_path, success_message, click=True, region=None):
         if position is not None:
             print(GREEN + f"Found {success_message} at: {position}" + RESET)
             if click:
+                time.sleep(uniform_delay)
                 pyautogui.click(position)
+                time.sleep(uniform_delay)
             return True
     except pyautogui.ImageNotFoundException:
         print(RED + f"Could not locate the {image_path} on the screen." + RESET)
@@ -50,17 +52,18 @@ def show_dialog(message):
 def bot_cycle():
     try:
         while True:
+            if locate_and_click(folder_location + 'out-of-ads.png', "Out of Ads found", click=False):
+                show_dialog("No Ads this time, try again later.")
+                show_options_dialog()
+                break
             tasks = [
                 (folder_location + 'play-ad.png', 'Play Ad Button found'),
                 (folder_location + 'close-reward.png', 'Close Reward Button found'),
                 # (folder_location + 'greenhouse-building.png', 'Greenhouse Building found'),
                 # (folder_location + 'greenhouse-status.png', 'Greenhouse Status found'),
             ]
-
             for task in tasks:
                 locate_and_click(*task)
-                time.sleep(uniform_delay)
-
     except KeyboardInterrupt:
         print("Keyboard interrupt received. Stopping the loop.")
         show_dialog("Keyboard interrupt received. Stopping the loop.")
