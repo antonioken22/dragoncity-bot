@@ -67,6 +67,7 @@ def bot_cycle():
             (folder_location + 'gold.png', 'Gold found'),
             (folder_location + 'food.png', 'Food found'),
             (folder_location + 'gold-food.png', 'Gold and Food found'),
+            (folder_location + 'close-accidental-open.png', 'Close Accidental Open Button found'),
         ]
 
         for task in tasks:
@@ -114,6 +115,7 @@ while confirmation == 'yes':
             move_island('fifth-to-sixth-island.png', drag_to_5, 2)
             bot_cycle()
             move_island('sixth-to-fifth-island.png', drag_to_6, 2)
+            bot_cycle()
             move_island('fifth-to-seventh-island.png', drag_to_7, 2)
             bot_cycle()
             move_island('seventh-to-eighth-island.png', drag_to_8, 2)
@@ -121,6 +123,7 @@ while confirmation == 'yes':
             move_island('eighth-to-ninth-island.png', drag_to_9, 2)
             bot_cycle()
             show_dialog("Now collect the rest you lazy ass.")
+            show_options_dialog()
             break
     except pyautogui.ImageNotFoundException:
         print(RED + f"Could not locate {image_hint}." + RESET)
