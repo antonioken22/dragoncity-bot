@@ -1,9 +1,9 @@
-import tkinter as tk
-from tkinter import simpledialog
 import subprocess
 import os
+import tkinter as tk
+from tkinter import simpledialog,messagebox
 
-options = ["Watch DTV Ads", "Watch Greenhouse Ads", "Collect All Gold"]
+options = ["Collect All Food and Gold", "Watch DTV Ads", "Watch Hatchery Ads", "Watch Greenhouse Ads", "Arena Fight to Lose Points", "League Auto Combat"]
 
 class OptionDialog(simpledialog.Dialog):
     def __init__(self, parent, title, options, execute_func):
@@ -39,17 +39,20 @@ def show_options_dialog():
         print("Options dialog closed thus closing the program.")
     else:
         print("Options dialog canceled thus closing the program.")
-
+    
     return result
 
 def execute_selected_option(selected_option):
-    if selected_option == "Watch DTV Ads":  
-        print("Selected: Watch DTV Ads")
+    if selected_option == "Collect All Food and Gold":  
+        print(f"Selected: {selected_option}")
+        messagebox.showinfo("Feature Under Development", "This feature is still under development.")
+    elif selected_option == "Watch DTV Ads":  
+        print(f"Selected: {selected_option}")
         script_path = os.path.join(os.path.dirname(__file__), "watch_dtv_ad_bot", "watch_dtv_ad_bot.py")
         subprocess.run(["python", script_path])
     elif selected_option == "Watch Greenhouse Ads":  
-        print("Selected: Watch Greenhouse Ads")
+        print(f"Selected: {selected_option}")
         script_path = os.path.join(os.path.dirname(__file__), "watch_greenhouse_ad_bot", "watch_greenhouse_ad_bot.py")
         subprocess.run(["python", script_path])
     else:
-        print("Unknown option:", selected_option)
+        print(f"Selected: Unknown Option")
