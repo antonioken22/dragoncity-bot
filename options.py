@@ -33,14 +33,11 @@ def show_options_dialog():
     root.withdraw()
 
     dlg = OptionDialog(root, "Dragon City Bot", options, execute_selected_option)
-    result = dlg.result
 
     if dlg.dialog_closed:
         print("Options dialog closed thus closing the program.")
     else:
         print("Options dialog canceled thus closing the program.")
-    
-    return result
 
 def execute_selected_option(selected_option):
     if selected_option == "Collect All Food and Gold":  
@@ -53,6 +50,10 @@ def execute_selected_option(selected_option):
     elif selected_option == "Watch Greenhouse Ads":  
         print(f"Selected: {selected_option}")
         script_path = os.path.join(os.path.dirname(__file__), "watch_greenhouse_ad_bot", "watch_greenhouse_ad_bot.py")
+        subprocess.run(["python", script_path])
+    elif selected_option == "Watch Hatchery Ads":  
+        print(f"Selected: {selected_option}")
+        script_path = os.path.join(os.path.dirname(__file__), "watch_hatchery_ad_bot", "watch_hatchery_ad_bot.py")
         subprocess.run(["python", script_path])
     else:
         print(f"Selected: Unknown Option")
