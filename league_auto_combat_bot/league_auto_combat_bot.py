@@ -35,9 +35,8 @@ def locate_and_click(image_path, success_message, click=True, region=None):
         if position is not None:
             print(GREEN + f"Found {success_message} at: {position}" + RESET)
             if click:
-                time.sleep(uniform_delay)
-                pyautogui.click(position)
-                time.sleep(uniform_delay)
+                pyautogui.moveTo(position, duration=0.66)
+                pyautogui.click(position, duration=0.01)
             return True
     except pyautogui.ImageNotFoundException:
         print(RED + f"Could not locate the {image_path} on the screen." + RESET)

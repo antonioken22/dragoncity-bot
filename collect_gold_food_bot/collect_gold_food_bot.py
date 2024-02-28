@@ -38,19 +38,15 @@ drag_to_7 = (1201, 195)
 drag_to_8 = (1156, 781)
 drag_to_9 = (1017, 858)
 
-def locate_and_click(image_path, success_message, click=True, region=None):
+def locate_and_click(image_path, success_message, click=True):
     try:
-        if region:
-            position = pyautogui.locateOnScreen(image_path, confidence=uniform_confidence, region=region)
-        else:
-            position = pyautogui.locateOnScreen(image_path, confidence=uniform_confidence)
+        position = pyautogui.locateOnScreen(image_path, confidence=uniform_confidence)
 
         if position is not None:
             print(GREEN + f"Found {success_message} at: {position}" + RESET)
             if click:
-                time.sleep(uniform_delay)
-                pyautogui.click(position)
-                time.sleep(uniform_delay)
+                pyautogui.moveTo(position, duration=0.66)
+                pyautogui.click(position, duration=0.01)
             return True
     except pyautogui.ImageNotFoundException:
         print(RED + f"Could not locate the {image_path} on the screen." + RESET)
@@ -73,8 +69,8 @@ def bot_cycle():
         for task in tasks:
             locate_and_click(*task)
 
-def move_island(search_image, coordinate, drag_delay=2):
-    position = pyautogui.locateOnScreen(folder_location + search_image, confidence=0.8)
+def move_island(search_image, coordinate, drag_delay=2, confidence=0.8):
+    position = pyautogui.locateOnScreen(folder_location + search_image, confidence=confidence)
     print(GREEN + f"{search_image} is found at: {position}" + RESET)
     pyautogui.moveTo(position, duration=uniform_delay)
     pyautogui.dragTo(coordinate, button='left', duration=drag_delay)
@@ -110,7 +106,7 @@ while confirmation == 'yes':
             bot_cycle()
             move_island('third-to-fourth-island.png', drag_to_3, 2)
             bot_cycle()
-            move_island('fourth-to-fifth-island.png', drag_to_4, 2)
+            move_island('fourth-to-fifth-island.png', drag_to_4, 2, 0.9)
             bot_cycle()
             move_island('fifth-to-sixth-island.png', drag_to_5, 2)
             bot_cycle()
