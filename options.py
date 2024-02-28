@@ -3,7 +3,7 @@ import os
 import tkinter as tk
 from tkinter import simpledialog,messagebox
 
-options = ["Collect All Food and Gold", "Watch DTV Ads", "Watch Hatchery Ads", "Watch Greenhouse Ads", "Arena Fight to Lose Points", "League Auto Combat"]
+options = ["Collect All Gold and Food", "Watch DTV Ads", "Watch Hatchery Ads", "Watch Greenhouse Ads", "Arena Fight to Lose Points", "League Auto Combat"]
 
 class OptionDialog(simpledialog.Dialog):
     def __init__(self, parent, title, options, execute_func):
@@ -40,9 +40,10 @@ def show_options_dialog():
         print("Options dialog canceled thus closing the program.")
 
 def execute_selected_option(selected_option):
-    if selected_option == "Collect All Food and Gold":  
+    if selected_option == "Collect All Gold and Food":  
         print(f"Selected: {selected_option}")
-        messagebox.showinfo("Feature Under Development", "This feature is still under development.")
+        script_path = os.path.join(os.path.dirname(__file__), "collect_gold_food_bot", "collect_gold_food_bot.py")
+        subprocess.run(["python", script_path])
     elif selected_option == "Watch DTV Ads":  
         print(f"Selected: {selected_option}")
         script_path = os.path.join(os.path.dirname(__file__), "watch_dtv_ad_bot", "watch_dtv_ad_bot.py")
@@ -55,5 +56,15 @@ def execute_selected_option(selected_option):
         print(f"Selected: {selected_option}")
         script_path = os.path.join(os.path.dirname(__file__), "watch_hatchery_ad_bot", "watch_hatchery_ad_bot.py")
         subprocess.run(["python", script_path])
+    elif selected_option == "Arena Fight to Lose Points":  
+        print(f"Selected: {selected_option}")
+        messagebox.showinfo("Feature Under Development", "This feature is still under development.")
+    elif selected_option == "League Auto Combat":  
+        print(f"Selected: {selected_option}")
+        messagebox.showinfo("Feature Under Development", "This feature is still under development.")
     else:
         print(f"Selected: Unknown Option")
+
+# For testing
+# if __name__ == '__main__':
+#     show_options_dialog()
