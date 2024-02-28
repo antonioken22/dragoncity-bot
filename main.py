@@ -1,8 +1,9 @@
-import tkinter as tk
-from tkinter import messagebox
-from options import show_options_dialog
 import pyautogui
 import sys
+import tkinter as tk
+from tkinter import messagebox
+
+from options import show_options_dialog
 
 # For terminal printing only
 GREEN = '\033[92m'
@@ -28,8 +29,6 @@ while confirmation == 'yes':
         position = pyautogui.locateOnScreen('dragoncity-icon.png', confidence=0.8)
         if position is not None:
             print(GREEN + f"Dragon City Icon is found at: {position}" + RESET)
-
-            # Import and call options related functions
             show_options_dialog()
             break
     except pyautogui.ImageNotFoundException:
