@@ -1,6 +1,6 @@
 # dragoncity-bot
 
-A Dragon City (Windows Desktop) Bot that automates mundane tasks. Works great with 1080p desktop resolution.
+A Dragon City (Windows Desktop) Bot that automates mundane tasks. Works only with 1920x1080p desktop resolution.
 
 ## Demo Video 
 
@@ -11,14 +11,17 @@ https://youtu.be/qHgq-sve-gE?si=ugwvXKHiXPr3etn4
 - Uses `pyautogui`
 - Simple System Dialogues With Instructions
 - Visual Studio Code Terminal Logging
+- Can Be Run Like An Executable By Double Clicking `main.py`
 - More to come
 
 ## Bot Tasks Available
 
 - Collect Gold and Food upto 9th Island
-- Watch Dragon TV Island Ads
+- Watch Dragon TV Island Ads <-- New Feature
 - Watch Greenhouse Building Ads
 - Watch Hatchery Ads
+- Arena Fight to Lose Points <-- Under Development
+- League Auto Combat <-- Latest Feature
 - More to come
 
 ## How to use
