@@ -61,7 +61,8 @@ def execute_selected_option(selected_option):
         messagebox.showinfo("Feature Under Development", "This feature is still under development.")
     elif selected_option == "League Auto Combat":  
         print(f"Selected: {selected_option}")
-        messagebox.showinfo("Feature Under Development", "This feature is still under development.")
+        script_path = os.path.join(os.path.dirname(__file__), "league_auto_combat_bot", "league_auto_combat_bot.py")
+        subprocess.run(["python", script_path])
     else:
         print(f"Selected: Unknown Option")
 
