@@ -36,6 +36,7 @@ def locate_and_click(image_path, success_message, click=True, region=None):
             print(GREEN + f"Found {success_message} at: {position}" + RESET)
             if click:
                 pyautogui.click(position)
+                time.sleep(uniform_delay)
             return True
     except pyautogui.ImageNotFoundException:
         print(RED + f"Could not locate the {image_path} on the screen." + RESET)
@@ -49,7 +50,7 @@ def show_dialog(message):
 def bot_cycle():
     while True:
         if locate_and_click(folder_location + 'next-in-5h.png', "Next In 5h found", click=False, region=(0, 0, 725, 1020)):
-            show_dialog("Time to take a break! Next In 5 hours.")
+            show_dialog("Time to take a break! Next In 6 hours.")
             show_options_dialog()
             break
 
@@ -66,7 +67,6 @@ def bot_cycle():
 
         for task in tasks:
             locate_and_click(*task)
-            time.sleep(uniform_delay)
 
 # Step 1: Open a Dialogue
 root = tk.Tk()
