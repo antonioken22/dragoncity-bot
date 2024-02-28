@@ -28,9 +28,9 @@ uniform_confidence = 0.8
 def locate_and_click(image_path, success_message, click=True, region=None):
     try:
         if region:
-            position = pyautogui.locateOnScreen(image_path, uniform_confidence, region=region)
+            position = pyautogui.locateOnScreen(image_path, confidence=uniform_confidence, region=region)
         else:
-            position = pyautogui.locateOnScreen(image_path, uniform_confidence)
+            position = pyautogui.locateOnScreen(image_path, confidence=uniform_confidence)
 
         if position is not None:
             print(GREEN + f"Found {success_message} at: {position}" + RESET)
