@@ -1,6 +1,6 @@
 # dragoncity-bot
 
-A Dragon City (Windows Desktop) Bot that automates mundane tasks. Works great with 1080p desktop resolution.
+A Dragon City (Windows Desktop) Bot that automates mundane tasks. Works only with 1920x1080p desktop resolution.
 
 ## Demo Video 
 
