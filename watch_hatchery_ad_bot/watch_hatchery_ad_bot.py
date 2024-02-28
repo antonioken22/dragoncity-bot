@@ -48,11 +48,6 @@ def show_dialog(message):
 # Bot sequence of tasks
 def bot_cycle():
     while True:
-        if locate_and_click(folder_location + 'next-in-5h.png', "Next In 5h found", click=False, region=(0, 0, 725, 1020)):
-            show_dialog("Time to take a break! Next In 5 hours.")
-            show_options_dialog()
-            break
-
         tasks = [
             (folder_location + 'hatchery-open-again.png', 'Hatchery Open Again Button found'),
             (folder_location + 'skip-6h.png', 'Skip 6h Button found'),
