@@ -16,8 +16,8 @@ https://youtu.be/qHgq-sve-gE?si=ugwvXKHiXPr3etn4
 
 ## Bot Tasks Available
 
-- Collect Gold and Food upto 9th Island
-- Watch Dragon TV Island Ads <-- New Feature
+- Collect Gold and Food upto 9th Island <-- New Feature
+- Watch Dragon TV Island Ads 
 - Watch Greenhouse Building Ads
 - Watch Hatchery Ads
 - Arena Fight to Lose Points <-- Under Development
