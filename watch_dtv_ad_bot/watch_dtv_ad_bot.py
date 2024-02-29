@@ -25,7 +25,7 @@ RESET = '\033[0m'
 uniform_delay = 0.5
 uniform_confidence = 0.8
 
-def locate_and_click(image_path, success_message, click=True, region=None):
+def locate_and_click(image_path, success_message, click=True, region=None, delay_execution=0):
     try:
         if region:
             position = pyautogui.locateOnScreen(image_path, confidence=uniform_confidence, region=region)
@@ -35,6 +35,7 @@ def locate_and_click(image_path, success_message, click=True, region=None):
         if position is not None:
             print(GREEN + f"Found {success_message} at: {position}" + RESET)
             if click:
+                time.sleep(delay_execution)
                 pyautogui.moveTo(position, duration=0.66)
                 pyautogui.click(position, duration=0.01)
             return True
@@ -57,11 +58,12 @@ def bot_cycle():
             show_dialog("No Ads this time, try again later.")
             show_options_dialog()
             break
+        elif locate_and_click(folder_location + 'close-reward.png', 'Close Reward Button found', delay_execution=5):
+            continue
 
         tasks = [
             (folder_location + 'give-me-prizes.png', 'Give Me Prizes! Button found'),
             (folder_location + 'get-rewards.png', 'Get Rewards Button found'),
-            (folder_location + 'close-reward.png', 'Close Reward Button found'),
             (folder_location + 'claim-and-watch-next.png', 'Claim And Watch Next Button found'),
             (folder_location + 'tap-to-open.png', 'Tap To Open found'),
             (folder_location + 'claim-yellow.png', 'Yellow Claim Button found'),

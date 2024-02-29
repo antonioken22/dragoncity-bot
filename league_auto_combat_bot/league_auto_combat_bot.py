@@ -25,18 +25,15 @@ RESET = '\033[0m'
 uniform_delay = 0.5
 uniform_confidence = 0.8
 
-def locate_and_click(image_path, success_message, click=True, region=None):
+def locate_and_click(image_path, success_message, click=True, delay_execution=0, move_duration=0.66, click_duration=0.01):
     try:
-        if region:
-            position = pyautogui.locateOnScreen(image_path, confidence=uniform_confidence, region=region)
-        else:
-            position = pyautogui.locateOnScreen(image_path, confidence=uniform_confidence)
-
+        position = pyautogui.locateOnScreen(image_path, confidence=uniform_confidence)
         if position is not None:
             print(GREEN + f"Found {success_message} at: {position}" + RESET)
             if click:
-                pyautogui.moveTo(position, duration=0.66)
-                pyautogui.click(position, duration=0.01)
+                time.sleep(delay_execution)
+                pyautogui.moveTo(position, duration=move_duration)
+                pyautogui.click(position, duration=click_duration)
             return True
     except pyautogui.ImageNotFoundException:
         print(RED + f"Could not locate the {image_path} on the screen." + RESET)
@@ -57,12 +54,14 @@ def ad_bot_cycle():
             show_dialog("No Ads this time, try again later.")
             show_options_dialog()
             break
+        elif locate_and_click(folder_location + 'close-reward.png', 'Close Reward Button found', delay_execution=5):
+            continue
 
         tasks = [
             (folder_location + 'opponent.png', 'Opponent found'),
             (folder_location + 'auto-combat-play-button.png', 'Auto Combat Play Button found'),
             (folder_location + 'play-ad.png', 'Play Ad Button found'),
-            (folder_location + 'close-reward.png', 'Close Reward Button found'),
+            (folder_location + 'gem-claim.png', 'Gem Claim Button found'),
         ]
         for task in tasks:
             locate_and_click(*task)
@@ -77,6 +76,7 @@ def no_ad_bot_cycle():
             (folder_location + 'opponent.png', 'Opponent found'),
             (folder_location + 'auto-combat-play-button.png', 'Auto Combat Play Button found'),
             (folder_location + 'claim.png', 'Claim Button found'),
+            (folder_location + 'gem-claim.png', 'Gem Claim Button found'),
         ]
         for task in tasks:
             locate_and_click(*task)
