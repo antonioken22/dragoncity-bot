@@ -38,9 +38,9 @@ drag_to_7 = (1201, 195)
 drag_to_8 = (1156, 781)
 drag_to_9 = (1017, 858)
 
-def locate_and_click(image_path, success_message, click=True):
+def locate_and_click(image_path, success_message, click=True, set_confidence=0.9):
     try:
-        position = pyautogui.locateOnScreen(image_path, confidence=uniform_confidence)
+        position = pyautogui.locateOnScreen(image_path, confidence=set_confidence)
 
         if position is not None:
             print(GREEN + f"Found {success_message} at: {position}" + RESET)
@@ -81,8 +81,8 @@ root = tk.Tk()
 root.withdraw()
 
 confirmation = messagebox.askquestion(window_name, "Locate " + game_location + " and make sure it's in MAXIMIZE window mode. "
-                                                        "\nIn order for this to work well, MAX the ZOOM OUT first then ZOOM IN TWO(2) times by pressing the PLUS(+) button."
-                                                        "\nAnd you go AFK while this bot is running."
+                                                        "\nIn order for this to work, MAX the ZOOM OUT first then ZOOM IN TWO(2) times by pressing the PLUS(+) button."
+                                                        "\nThen make sure the the TREE OF LIFE is VISIBLE on your screen and you go AFK while this bot is running."
                                                         "\n\nHave you followed everything?")
 
 root.destroy()
@@ -126,7 +126,7 @@ while confirmation == 'yes':
         answer = messagebox.askyesno(window_name, "Are you sure " + game_location + " is located?\n\n"
                                                         "Locate " + game_location + " and make sure it's in MAXIMIZE window mode. "
                                                         "\nIn order for this to work well, MAX the ZOOM OUT first then ZOOM IN TWO(2) times by pressing the PLUS(+) button."
-                                                        "\nAnd you go AFK while this bot is running."
+                                                        "\nThen make sure the the TREE OF LIFE is VISIBLE on your screen and you go AFK while this bot is running."
                                                         "\n\nWould you like to try scanning again?")
         if not answer:
             show_options_dialog()
