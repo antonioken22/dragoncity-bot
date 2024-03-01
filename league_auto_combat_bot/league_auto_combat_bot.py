@@ -56,6 +56,9 @@ def ad_bot_cycle():
             break
         elif locate_and_click(folder_location + 'close-reward.png', 'Close Reward Button found', delay_execution=5):
             continue
+        elif locate_and_click(folder_location + 'last-chance.png', 'Last Chance! Text found', click=False):
+            locate_and_click(folder_location + 'watch-trailer.png', 'Watch Trailer Button found')
+            continue
 
         tasks = [
             (folder_location + 'opponent.png', 'Opponent found'),
@@ -72,6 +75,9 @@ def no_ad_bot_cycle():
             show_dialog("Time to take a break! Next In 6 hours.")
             show_options_dialog()
             break
+        elif locate_and_click(folder_location + 'last-chance.png', 'Last Chance! Text found', click=False):
+            locate_and_click(folder_location + 'close-button.png', 'Close Button found')
+            continue
         tasks = [
             (folder_location + 'opponent.png', 'Opponent found'),
             (folder_location + 'auto-combat-play-button.png', 'Auto Combat Play Button found'),
