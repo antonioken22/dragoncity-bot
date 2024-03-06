@@ -84,7 +84,7 @@ class TeamSelectionDialog(simpledialog.Dialog):
         super().__init__(parent, title)
 
     def body(self, master):
-        self.team_selection_choices = [str(i) for i in range(1, 14)]
+        self.team_selection_choices = [str(i) for i in range(1, 9)]
         self.var = tk.StringVar()
         self.var.set(self.team_selection_choices[0])
 
