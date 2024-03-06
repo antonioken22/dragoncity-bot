@@ -52,12 +52,12 @@ def bot_cycle():
         elif locate_and_click(folder_location + 'dont-worry-close.png', "Don't Worry Close Button"):
             break
         elif locate_and_click(folder_location + 'skip-all.png', 'Skip All Button', click=False):
-            if locate_and_click(folder_location + 'disabled-choose-forward.png', "Disabled Choose Forward Button", set_confidence=0.99, click=False):
+            if locate_and_click(folder_location + 'disabled-choose-forward.png', "Disabled Choose Forward Button", set_confidence=0.95, click=False):
                 show_dialog("Time to take a break!")
                 show_options_dialog()
                 break
             else:
-                locate_and_click(folder_location + 'choose-forward.png', "Choose Forward Button", set_confidence=0.99)
+                locate_and_click(folder_location + 'choose-forward.png', "Choose Forward Button", set_confidence=0.95)
             continue
         elif locate_and_click(folder_location + 'missing-dragon-rescue-text.png', 'Missing Dragon Rescue Text', click=False):
             break
