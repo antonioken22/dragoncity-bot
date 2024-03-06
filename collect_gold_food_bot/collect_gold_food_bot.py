@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import messagebox
+from tkinter import messagebox, simpledialog
 import pyautogui
 import time
 import ctypes
@@ -58,7 +58,7 @@ def show_dialog(message):
 
 # Bot sequence of tasks
 def bot_cycle():
-    for _ in range (16):
+    for _ in range (selected_cycles):
         tasks = [
             (folder_location + 'gold.png', 'Gold found'),
             (folder_location + 'food.png', 'Food found'),
@@ -80,6 +80,60 @@ def move_island(search_image, coordinate, drag_delay=2, confidence=0.8):
 root = tk.Tk()
 root.withdraw()
 
+# Island Selection Dropdown
+class IslandSelectionDialog(simpledialog.Dialog):
+    def __init__(self, parent, title, prompt):
+        self.prompt = prompt
+        super().__init__(parent, title)
+
+    def body(self, master):
+        self.island_choices = [str(i) for i in range(1, 10)]
+        self.var = tk.StringVar()
+        self.var.set(self.island_choices[0])
+
+        tk.Label(master, text=self.prompt).pack()
+        island_dropdown = tk.OptionMenu(master, self.var, *self.island_choices)
+        island_dropdown.pack()
+
+    def apply(self):
+        self.result = self.var.get()
+
+island_dialog = IslandSelectionDialog(root, "Select Island", "Choose up to which island this bot will execute:")
+selected_island = island_dialog.result
+if selected_island is not None:
+    selected_island = int(selected_island)
+else:
+    selected_island = 0
+    show_options_dialog()
+
+# Bot Cycles Dropdown
+class BotCyclesDialog(simpledialog.Dialog):
+    def __init__(self, parent):
+        self.dialog_title = "Select Bot Cycles"
+        self.prompt = "Choose the number of bot cycles (i.e. number of Highest number of Gold/Food in an island):"
+        super().__init__(parent, self.dialog_title)
+
+    def body(self, master):
+        self.bot_cycle_choices = [str(i) for i in range(1, 25)]
+        self.var = tk.StringVar()
+        self.var.set(self.bot_cycle_choices[0])
+
+        tk.Label(master, text=self.prompt).pack()
+        bot_cycles_dropdown = tk.OptionMenu(master, self.var, *self.bot_cycle_choices)
+        bot_cycles_dropdown.pack()
+
+    def apply(self):
+        self.result = self.var.get()
+
+bot_cycles_dialog_instance = BotCyclesDialog(root)
+selected_cycles = bot_cycles_dialog_instance.result
+if selected_cycles is not None:
+    selected_cycles = int(selected_cycles)
+else:
+    selected_cycles = 0
+    show_options_dialog()
+
+# Confirmation Message
 confirmation = messagebox.askquestion(window_name, "Locate " + game_location + " and make sure it's in MAXIMIZE window mode. "
                                                         "\nIn order for this to work, MAX the ZOOM OUT first then ZOOM IN TWO(2) times by pressing the PLUS(+) button."
                                                         "\nThen make sure the the TREE OF LIFE is VISIBLE on your screen and you go AFK while this bot is running."
@@ -97,27 +151,29 @@ while confirmation == 'yes':
         position = pyautogui.locateOnScreen(folder_location + 'main-island-hint.png', confidence=0.8)
         if position is not None:
             print(GREEN + f"{image_hint} is found at: {position}" + RESET)
-            pyautogui.moveTo(position, duration=uniform_delay)
-            pyautogui.dragTo(drag_to_0, button='left', duration=2.5)
-            bot_cycle()
-            move_island('first-to-second-island.png', drag_to_1, 2)
-            bot_cycle()
-            move_island('second-to-third-island.png', drag_to_2, 2)
-            bot_cycle()
-            move_island('third-to-fourth-island.png', drag_to_3, 2)
-            bot_cycle()
-            move_island('fourth-to-fifth-island.png', drag_to_4, 2, 0.9)
-            bot_cycle()
-            move_island('fifth-to-sixth-island.png', drag_to_5, 2)
-            bot_cycle()
-            move_island('sixth-to-fifth-island.png', drag_to_6, 2)
-            bot_cycle()
-            move_island('fifth-to-seventh-island.png', drag_to_7, 2)
-            bot_cycle()
-            move_island('seventh-to-eighth-island.png', drag_to_8, 2)
-            bot_cycle()
-            move_island('eighth-to-ninth-island.png', drag_to_9, 2)
-            bot_cycle()
+            for i in range(1, selected_island + 1):
+                if i == 1:
+                    pyautogui.moveTo(position, duration=uniform_delay)
+                    pyautogui.dragTo(drag_to_0, button='left', duration=2.5)
+                elif i == 2:
+                    move_island('first-to-second-island.png', drag_to_1, 2)
+                elif i == 3:
+                    move_island('second-to-third-island.png', drag_to_2, 2)
+                elif i == 4:
+                    move_island('third-to-fourth-island.png', drag_to_3, 2)
+                elif i == 5:
+                    move_island('fourth-to-fifth-island.png', drag_to_4, 2, 0.9)
+                elif i == 6:
+                    move_island('fifth-to-sixth-island.png', drag_to_5, 2)
+                elif i == 7:
+                    move_island('sixth-to-fifth-island.png', drag_to_6, 2)
+                    move_island('fifth-to-seventh-island.png', drag_to_7, 2)
+                elif i == 8:
+                    move_island('seventh-to-eighth-island.png', drag_to_8, 2)
+                elif i == 9:
+                    move_island('eighth-to-ninth-island.png', drag_to_9, 2)
+
+                bot_cycle()
             show_dialog("Now collect the rest you lazy ass.")
             show_options_dialog()
             break
