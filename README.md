@@ -4,7 +4,7 @@ A Dragon City (Windows Desktop) Bot that automates mundane tasks. Works only wit
 
 ## Demo Video 
 
-https://youtu.be/OgetBWFXCHU?si=GipKLMLb9a_G-L2L
+v2: https://youtu.be/OgetBWFXCHU?si=GipKLMLb9a_G-L2L
 
 ## Main Features
 
@@ -16,12 +16,13 @@ https://youtu.be/OgetBWFXCHU?si=GipKLMLb9a_G-L2L
 
 ## Bot Tasks Available
 
-- Collect Gold and Food upto 9th Island <-- New Feature
+- Collect Gold and Food upto 9th Island 
 - Watch Dragon TV Island Ads 
 - Watch Greenhouse Building Ads
 - Watch Hatchery Ads
+- League Auto Combat
+- Dragon Rescue Auto Combat <-- Latest Feature
 - Arena Fight to Lose Points <-- Under Development
-- League Auto Combat <-- Latest Feature
 - More to come
 
 ## How to use
@@ -40,7 +41,7 @@ pip install -r requirements.txt
 
 - It searches on the screen a match of a saved `.png` image
 - Clicks it or just looks it up and see if it's there
-- And cycles through the tasks per set `delay` which is `0.5s` by default
+- And cycles through the tasks per set `delay` which is `0.5`s by default
 
 ## Image not found even if it's there
 
