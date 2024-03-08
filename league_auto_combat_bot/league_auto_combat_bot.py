@@ -59,12 +59,14 @@ def ad_bot_cycle():
         elif locate_and_click(folder_location + 'last-chance.png', 'Last Chance! Text found', click=False):
             locate_and_click(folder_location + 'watch-trailer.png', 'Watch Trailer Button found')
             continue
-
+        elif locate_and_click(folder_location + 'gem-claim.png', 'Gem Claim Button found', click=False):
+            if locate_and_click(folder_location + 'team.png', 'Team Button found'):
+                locate_and_click(folder_location + 'ok.png', 'Ok Button found')
+            continue
         tasks = [
             (folder_location + 'opponent.png', 'Opponent found'),
             (folder_location + 'auto-combat-play-button.png', 'Auto Combat Play Button found'),
             (folder_location + 'play-ad.png', 'Play Ad Button found'),
-            (folder_location + 'gem-claim.png', 'Gem Claim Button found'),
         ]
         for task in tasks:
             locate_and_click(*task)
@@ -78,11 +80,14 @@ def no_ad_bot_cycle():
         elif locate_and_click(folder_location + 'last-chance.png', 'Last Chance! Text found', click=False):
             locate_and_click(folder_location + 'close-button.png', 'Close Button found')
             continue
+        elif locate_and_click(folder_location + 'gem-claim.png', 'Gem Claim Button found', click=False):
+            if locate_and_click(folder_location + 'team.png', 'Team Button found'):
+                locate_and_click(folder_location + 'ok.png', 'Ok Button found')
+            continue
         tasks = [
             (folder_location + 'opponent.png', 'Opponent found'),
             (folder_location + 'auto-combat-play-button.png', 'Auto Combat Play Button found'),
             (folder_location + 'claim.png', 'Claim Button found'),
-            (folder_location + 'gem-claim.png', 'Gem Claim Button found'),
         ]
         for task in tasks:
             locate_and_click(*task)
