@@ -35,7 +35,7 @@ def locate_and_click(image_path, image_description, click_times=1, duration=0.01
                 pyautogui.moveTo(position, duration=0.66)
                 for _ in range(1, click_times + 1):
                     pyautogui.click(position, duration=duration)
-            return True
+        return True
     except pyautogui.ImageNotFoundException:
         print(RED + f"Could not locate the {image_path} on the screen." + RESET)
     except Exception as e:
@@ -51,13 +51,13 @@ def bot_cycle():
             break
         elif locate_and_click(folder_location + 'dont-worry-close.png', "Don't Worry Close Button"):
             break
-        elif locate_and_click(folder_location + 'skip-all.png', 'Skip All Button', click=False):
-            if locate_and_click(folder_location + 'disabled-choose-forward.png', "Disabled Choose Forward Button", set_confidence=0.95, click=False):
+        elif (locate_and_click(folder_location + 'skip-all.png', 'Skip All Button', click=False) or locate_and_click(folder_location + 'skip-all-red.png', 'Red Skip All Button', click=False)):
+            if locate_and_click(folder_location + 'disabled-choose-forward.png', "Disabled Choose Forward Button", set_confidence=0.90, click=False):
                 show_dialog("Time to take a break!")
                 show_options_dialog()
                 break
             else:
-                locate_and_click(folder_location + 'choose-forward.png', "Choose Forward Button", set_confidence=0.95)
+                locate_and_click(folder_location + 'choose-forward.png', "Choose Forward Button", set_confidence=0.90)
             continue
         elif locate_and_click(folder_location + 'missing-dragon-rescue-text.png', 'Missing Dragon Rescue Text', click=False):
             break
