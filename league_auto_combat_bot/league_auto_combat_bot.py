@@ -59,7 +59,8 @@ def ad_bot_cycle():
         elif locate_and_click(folder_location + 'last-chance.png', 'Last Chance! Text found', click=False):
             locate_and_click(folder_location + 'watch-trailer.png', 'Watch Trailer Button found')
             continue
-        elif locate_and_click(folder_location + 'gem-claim.png', 'Gem Claim Button found', click=False):
+        elif locate_and_click(folder_location + 'gem-claim.png', 'Gem Claim Button found'):
+            time.sleep(5)
             if locate_and_click(folder_location + 'team.png', 'Team Button found'):
                 locate_and_click(folder_location + 'ok.png', 'Ok Button found')
             continue
