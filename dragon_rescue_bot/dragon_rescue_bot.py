@@ -112,10 +112,11 @@ if confirmation == 'no':
 # Step 2: Attempt to locate 
 while confirmation == 'yes':
     try:
-        team_selected_executed = False # Flag
+        team_selected_executed = False 
         position = pyautogui.locateOnScreen(folder_location + 'missing-dragon-rescue-text.png', confidence=0.8)
         print(GREEN + f"{image_hint} is found at: {position}" + RESET)
         while position is not None:
+            locate_and_click(folder_location + 'tap-to-open.png', 'Tap To Open Text')
             battle = locate_and_click(folder_location + 'battle.png', 'Battle Icon')
             while battle:
                 if team_selected_executed is False: 
