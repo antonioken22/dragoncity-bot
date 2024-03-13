@@ -49,6 +49,8 @@ def bot_cycle():
     while True:
         if locate_and_click(folder_location + 'claim.png', "Claim Button"):
             break
+        elif locate_and_click(folder_location + 'key.png', "Key Button"):
+            break
         elif locate_and_click(folder_location + 'dont-worry-close.png', "Don't Worry Close Button"):
             break
         elif (locate_and_click(folder_location + 'skip-all.png', 'Skip All Button', click=False) or locate_and_click(folder_location + 'skip-all-red.png', 'Red Skip All Button', click=False)):
@@ -84,7 +86,7 @@ class TeamSelectionDialog(simpledialog.Dialog):
         super().__init__(parent, title)
 
     def body(self, master):
-        self.team_selection_choices = [str(i) for i in range(1, 9)]
+        self.team_selection_choices = [str(i) for i in range(1, 21)]
         self.var = tk.StringVar()
         self.var.set(self.team_selection_choices[0])
 
@@ -117,6 +119,8 @@ while confirmation == 'yes':
         print(GREEN + f"{image_hint} is found at: {position}" + RESET)
         while position is not None:
             locate_and_click(folder_location + 'tap-to-open.png', 'Tap To Open Text')
+            locate_and_click(folder_location + 'claim.png', "Claim Button")
+            locate_and_click(folder_location + 'key.png', "Key Button")
             battle = locate_and_click(folder_location + 'battle.png', 'Battle Icon')
             while battle:
                 if team_selected_executed is False: 
