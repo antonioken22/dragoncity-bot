@@ -51,7 +51,7 @@ def bot_cycle():
             break
         elif locate_and_click(folder_location + 'key.png', "Key Button"):
             break
-        elif locate_and_click(folder_location + 'dont-worry-close.png', "Don't Worry Close Button"):
+        elif locate_and_click(folder_location + 'close.png', "Close Button"):
             break
         elif (locate_and_click(folder_location + 'skip-all.png', 'Skip All Button', click=False) or locate_and_click(folder_location + 'skip-all-red.png', 'Red Skip All Button', click=False)):
             if locate_and_click(folder_location + 'disabled-choose-forward.png', "Disabled Choose Forward Button", set_confidence=0.90, click=False):
@@ -86,7 +86,7 @@ class TeamSelectionDialog(simpledialog.Dialog):
         super().__init__(parent, title)
 
     def body(self, master):
-        self.team_selection_choices = [str(i) for i in range(1, 21)]
+        self.team_selection_choices = [str(i) for i in range(1, 25)]
         self.var = tk.StringVar()
         self.var.set(self.team_selection_choices[0])
 
@@ -121,6 +121,17 @@ while confirmation == 'yes':
             locate_and_click(folder_location + 'tap-to-open.png', 'Tap To Open Text')
             locate_and_click(folder_location + 'claim.png', "Claim Button")
             locate_and_click(folder_location + 'key.png', "Key Button")
+            locate_and_click(folder_location + 'ok.png', 'Ok Button')
+            locate_and_click(folder_location + 'start.png', 'Start Button')
+            if locate_and_click(folder_location + 'new-rank.png', 'You Achieved A New Rank Text', click=False):
+                locate_and_click(folder_location + 'close.png', "Close Button")
+                continue
+            elif locate_and_click(folder_location + 'claim-end.png', 'Claim End Button'):
+                if locate_and_click(folder_location + 'rescue-over.png', 'Rescue Over Text', click=False):
+                    show_dialog("Congratulations, Rescue's Over!")
+                    show_options_dialog()
+                    break
+
             battle = locate_and_click(folder_location + 'battle.png', 'Battle Icon')
             while battle:
                 if team_selected_executed is False: 
