@@ -23,7 +23,7 @@ v2: https://youtu.be/OgetBWFXCHU?si=GipKLMLb9a_G-L2L
 - League Auto Combat
 - Dragon Rescue Auto Combat
 - Unli Terra + Terra Breed <-- Latest Feature
-- Arena Fight to Lose Points <-- Under Development
+- Arena Fight to Lose Points <-- Latest Feature
 - More to come
 
 ## How to use
