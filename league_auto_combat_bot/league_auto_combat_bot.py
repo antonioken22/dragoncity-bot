@@ -62,6 +62,7 @@ def ad_bot_cycle():
         elif locate_and_click(folder_location + 'gem-claim.png', 'Gem Claim Button found'):
             time.sleep(5)
             if locate_and_click(folder_location + 'team.png', 'Team Button found'):
+                time.sleep(2)
                 locate_and_click(folder_location + 'ok.png', 'Ok Button found')
             continue
         tasks = [
