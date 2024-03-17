@@ -3,7 +3,13 @@ import os
 import tkinter as tk
 from tkinter import simpledialog,messagebox
 
-options = ["Collect All Gold and Food", "Watch DTV Ads", "Skip 6h Ads", "Watch Greenhouse Ads", "League Auto Combat", "Dragon Rescue Auto Combat", "Arena Fight to Lose Points"]
+options = ["Collect All Gold and Food", 
+           "Watch DTV Ads", "Skip 6h Ads", 
+           "Watch Greenhouse Ads", 
+           "League Auto Combat", 
+           "Dragon Rescue Auto Combat", 
+           "Unli Terra Breed", 
+           "Arena Fight to Lose Points",]
 
 class OptionDialog(simpledialog.Dialog):
     def __init__(self, parent, title, options, execute_func):
@@ -63,6 +69,10 @@ def execute_selected_option(selected_option):
     elif selected_option == "Dragon Rescue Auto Combat":  
         print(f"Selected: {selected_option}")
         script_path = os.path.join(os.path.dirname(__file__), "dragon_rescue_bot", "dragon_rescue_bot.py")
+        subprocess.run(["python", script_path])
+    elif selected_option == "Unli Terra Breed":  
+        print(f"Selected: {selected_option}")
+        script_path = os.path.join(os.path.dirname(__file__), "terra_breed_bot", "terra_breed_bot.py")
         subprocess.run(["python", script_path])
     elif selected_option == "Arena Fight to Lose Points":  
         print(f"Selected: {selected_option}")
