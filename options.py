@@ -76,7 +76,8 @@ def execute_selected_option(selected_option):
         subprocess.run(["python", script_path])
     elif selected_option == "Arena Fight to Lose Points":  
         print(f"Selected: {selected_option}")
-        messagebox.showinfo("Feature Under Development", "This feature is still under development.")
+        script_path = os.path.join(os.path.dirname(__file__), "arena_auto_lose_bot", "arena_auto_lose_bot.py")
+        subprocess.run(["python", script_path])
     else:
         print(f"Selected: Unknown Option")
 
