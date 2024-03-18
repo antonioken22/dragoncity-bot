@@ -21,16 +21,12 @@ GREEN = '\033[92m'
 RED = '\033[91m'
 RESET = '\033[0m'
 
-# Set uniform values here
-uniform_delay = 0.5
-uniform_confidence = 0.8
-
-def locate_and_click(image_path, success_message, click=True, region=None, delay_execution=0):
+def locate_and_click(image_path, success_message, click=True, region=None, delay_execution=0, confidence=0.8):
     try:
         if region:
-            position = pyautogui.locateOnScreen(image_path, confidence=uniform_confidence, region=region)
+            position = pyautogui.locateOnScreen(image_path, confidence=confidence, region=region)
         else:
-            position = pyautogui.locateOnScreen(image_path, confidence=uniform_confidence)
+            position = pyautogui.locateOnScreen(image_path, confidence=confidence)
 
         if position is not None:
             print(GREEN + f"Found {success_message} at: {position}" + RESET)
@@ -50,7 +46,7 @@ def show_dialog(message):
 # Bot sequence of tasks
 def bot_cycle():
     while True:
-        if locate_and_click(folder_location + 'next-in-5h.png', "Next In 5h found", click=False, region=(0, 0, 725, 1020)):
+        if locate_and_click(folder_location + 'next-in-5h.png', "Next In 5h found", click=False, region=(0, 0, 725, 1020), confidence=0.9):
             show_dialog("Time to take a break! Next In 6 hours.")
             show_options_dialog()
             break
