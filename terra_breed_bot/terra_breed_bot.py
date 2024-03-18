@@ -15,7 +15,7 @@ from options import show_options_dialog
 folder_location = 'terra_breed_bot/'
 window_name = "Unlimited Terra Breeding"
 game_location = "Ultra Breeding Tree 2"
-image_hint = "Ultra Breeding Tree 2"
+image_hint = "Ultra Breeding Tree 2 Building"
 
 # For terminal printing only
 GREEN = '\033[92m'
@@ -34,7 +34,7 @@ def locate_and_click(image_path, success_message, click=True, set_confidence=0.8
         if position is not None:
             print(GREEN + f"Found {success_message} at: {position}" + RESET)
             if click:
-                pyautogui.moveTo(position, duration=0.66)
+                pyautogui.moveTo(position, duration=0.4)
                 pyautogui.click(position, duration=0.01)
             return True
     except pyautogui.ImageNotFoundException:
@@ -48,9 +48,9 @@ def show_dialog(message):
 # Bot sequence of tasks
 def bot_cycle():
     for _ in range (selected_cycles):
-        time.sleep(0.66)
+        time.sleep(0.4)
         if locate_and_click(folder_location + 'ultra-breeding-tree.png', 'Ultra Breeding Tree 2'):
-            time.sleep(0.66)
+            time.sleep(0.4)
             if locate_and_click(folder_location + 'rebreed.png', 'Rebreed Button'):
                 time.sleep(1)
                 if locate_and_click(folder_location + 'breed.png', 'Breed Button'):
@@ -58,9 +58,9 @@ def bot_cycle():
                     if locate_and_click(folder_location + 'take-egg.png', 'Take Egg Button'):
                         time.sleep(16)
                         if locate_and_click(folder_location + 'terra-hatch.png', 'Terra Hatch Button'):
-                            time.sleep(0.66)
+                            time.sleep(0.4)
                             if locate_and_click(folder_location + 'sell.png', 'Sell Button'):
-                                time.sleep(0.66)
+                                time.sleep(0.4)
                                 locate_and_click(folder_location + 'sell-green.png', 'Green Sell Button') 
 
 # Step 1: Open a Dialogue
@@ -75,7 +75,7 @@ class BotCyclesDialog(simpledialog.Dialog):
         super().__init__(parent, self.dialog_title)
 
     def body(self, master):
-        self.bot_cycle_choices = [str(i) for i in range(1, 33)]
+        self.bot_cycle_choices = [str(i) for i in range(1, 65)]
         self.var = tk.StringVar()
         self.var.set(self.bot_cycle_choices[0])
 
