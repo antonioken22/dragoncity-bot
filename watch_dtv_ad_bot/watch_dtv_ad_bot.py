@@ -50,6 +50,10 @@ def bot_cycle():
             show_dialog("Time to take a break! Next In 6 hours.")
             show_options_dialog()
             break
+        elif locate_and_click(folder_location + 'next-in-2h.png', "Next In 2h found", click=False, region=(0, 0, 725, 1020), confidence=0.9):
+            show_dialog("Time to take a break! Next In 3 hours.")
+            show_options_dialog()
+            break
         elif locate_and_click(folder_location + 'out-of-ads.png', "Out of Ads found", click=False):
             show_dialog("No Ads this time, try again later.")
             show_options_dialog()
