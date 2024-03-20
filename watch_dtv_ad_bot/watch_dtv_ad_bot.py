@@ -46,11 +46,11 @@ def show_dialog(message):
 # Bot sequence of tasks
 def bot_cycle():
     while True:
-        if locate_and_click(folder_location + 'next-in-5h.png', "Next In 5h found", click=False, region=(0, 0, 725, 1020), confidence=0.9):
+        if locate_and_click(folder_location + 'next-in-5h.png', "Next In 5h found", click=False, region=(0, 0, 725, 1020), confidence=0.98):
             show_dialog("Time to take a break! Next In 6 hours.")
             show_options_dialog()
             break
-        elif locate_and_click(folder_location + 'next-in-2h.png', "Next In 2h found", click=False, region=(0, 0, 725, 1020), confidence=0.9):
+        elif locate_and_click(folder_location + 'next-in-2h.png', "Next In 2h found", click=False, region=(0, 0, 725, 1020), confidence=0.98):
             show_dialog("Time to take a break! Next In 3 hours.")
             show_options_dialog()
             break
@@ -60,7 +60,6 @@ def bot_cycle():
             break
         elif locate_and_click(folder_location + 'close-reward.png', 'Close Reward Button found', delay_execution=5):
             continue
-
         tasks = [
             (folder_location + 'give-me-prizes.png', 'Give Me Prizes! Button found'),
             (folder_location + 'get-rewards.png', 'Get Rewards Button found'),
@@ -70,7 +69,6 @@ def bot_cycle():
             (folder_location + 'claim-green.png', 'Green Claim Button found'),
             (folder_location + 'close-dtv-coin.png', 'Close DTV Coin Button found'),
         ]
-
         for task in tasks:
             locate_and_click(*task)
 
