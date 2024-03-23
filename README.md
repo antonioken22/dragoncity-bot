@@ -4,7 +4,7 @@ A Dragon City (Windows Desktop) Bot that automates mundane tasks. Works only wit
 
 ## Demo Video
 
-v1.1: https://youtu.be/OgetBWFXCHU?si=GipKLMLb9a_G-L2L 
+v1.1: https://youtu.be/OgetBWFXCHU?si=GipKLMLb9a_G-L2L
 v1.2: Coming soon...
 
 ## Main Features
@@ -17,19 +17,20 @@ v1.2: Coming soon...
 
 ## Bot Tasks Available
 
-- Collect Gold and Food up to 9th Island
+- Collect Gold and Food (up to 9th Island only)
 - Watch Dragon TV Island Ads
 - Watch Greenhouse Building Ads
 - Watch Hatchery Ads
 - League Auto Combat
 - Dragon Rescue Auto Combat
-- Unli Terra + Terra Breed up to 40 Cycles <-- Latest Feature
-- Arena Fight to Lose Points <-- Under Development
+- Unli Terra + Terra Breeding (up to 40 Cycles only)
+- Unli Terra Hatching (up to 40 Cycles only) <-- Latest Feature
+- Arena Fight to Lose Points
 - More to come
 
 ## How to use
 
-- Clone this repository into your system
+- Clone this repository into your own machine
 - Run the code below in your Visual Studio Code Terminal
 
 ```shell

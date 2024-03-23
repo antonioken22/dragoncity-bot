@@ -8,7 +8,8 @@ options = ["Collect All Gold and Food",
            "Watch Greenhouse Ads", 
            "League Auto Combat", 
            "Dragon Rescue Auto Combat", 
-           "Unli Terra Breed", 
+           "Unli Terra Breed",
+           "Unli Terra Hatch", 
            "Arena Fight to Lose Points",]
 
 class OptionDialog(simpledialog.Dialog):
@@ -73,6 +74,10 @@ def execute_selected_option(selected_option):
     elif selected_option == "Unli Terra Breed":  
         print(f"Selected: {selected_option}")
         script_path = os.path.join(os.path.dirname(__file__), "terra_breed_bot", "terra_breed_bot.py")
+        subprocess.run(["python", script_path])
+    elif selected_option == "Unli Terra Hatch":  
+        print(f"Selected: {selected_option}")
+        script_path = os.path.join(os.path.dirname(__file__), "terra_hatch_bot", "terra_hatch_bot.py")
         subprocess.run(["python", script_path])
     elif selected_option == "Arena Fight to Lose Points":  
         print(f"Selected: {selected_option}")
