@@ -55,13 +55,13 @@ def bot_cycle():
                 time.sleep(1)
                 if locate_and_click(folder_location + 'breed.png', 'Breed Button'):
                     time.sleep(14)
-                    if locate_and_click(folder_location + 'take-egg.png', 'Take Egg Button'):
+                    if locate_and_click(folder_location + 'take-egg.png', 'Take Egg Button', set_confidence=0.8):
                         time.sleep(16)
                         if locate_and_click(folder_location + 'terra-hatch.png', 'Terra Hatch Button'):
                             time.sleep(0.4)
                             if locate_and_click(folder_location + 'sell.png', 'Sell Button'):
                                 time.sleep(0.4)
-                                locate_and_click(folder_location + 'sell-green.png', 'Green Sell Button') 
+                                locate_and_click(folder_location + 'sell-green.png', 'Green Sell Button', set_confidence=0.8) 
 
 # Step 1: Open a Dialogue
 root = tk.Tk()
