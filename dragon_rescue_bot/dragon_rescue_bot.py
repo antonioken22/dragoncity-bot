@@ -123,14 +123,14 @@ while confirmation == 'yes':
             locate_and_click(folder_location + 'key.png', "Key Button")
             locate_and_click(folder_location + 'ok.png', 'Ok Button')
             locate_and_click(folder_location + 'start.png', 'Start Button')
+            locate_and_click(folder_location + 'claim-end.png', 'Claim End Button')
             if locate_and_click(folder_location + 'new-rank.png', 'You Achieved A New Rank Text', click=False):
                 locate_and_click(folder_location + 'close.png', "Close Button")
                 continue
-            elif locate_and_click(folder_location + 'claim-end.png', 'Claim End Button'):
-                if locate_and_click(folder_location + 'rescue-over.png', 'Rescue Over Text', click=False):
-                    show_dialog("Congratulations, Rescue's Over!")
-                    show_options_dialog()
-                    break
+            elif locate_and_click(folder_location + 'rescue-over.png', 'Rescue Over Text', click=False):
+                show_dialog("Congratulations, Rescue's Over!")
+                show_options_dialog()
+                break
 
             battle = locate_and_click(folder_location + 'battle.png', 'Battle Icon')
             while battle:

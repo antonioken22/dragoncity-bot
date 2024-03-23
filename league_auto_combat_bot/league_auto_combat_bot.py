@@ -23,19 +23,18 @@ RESET = '\033[0m'
 
 # Set uniform values here
 uniform_delay = 0.5
-uniform_confidence = 0.8
 
-def locate_and_click(image_path, success_message, click=True, delay_execution=0, move_duration=0.66, click_duration=0.01):
+def locate_and_click(image_path, success_message, click=True, delay_execution=0, move_duration=0.66, click_duration=0.01, set_confidence=0.8):
     try:
-        position = pyautogui.locateOnScreen(image_path, confidence=uniform_confidence)
+        position = pyautogui.locateOnScreen(image_path, confidence=set_confidence)
         if position is not None:
             print(GREEN + f"Found {success_message} at: {position}" + RESET)
             if click:
                 time.sleep(delay_execution)
                 pyautogui.moveTo(position, duration=move_duration)
                 pyautogui.click(position, duration=click_duration)
-            return True
-    except pyautogui.ImageNotFoundException:
+        return True
+    except pyautogui.ImageNotFoundException:    
         print(RED + f"Could not locate the {image_path} on the screen." + RESET)
     except Exception as e:
         print(RED + f"An unexpected error occurred: {e}" + RESET)
@@ -46,7 +45,7 @@ def show_dialog(message):
 # Bot sequence of tasks
 def ad_bot_cycle():
     while True:
-        if locate_and_click(folder_location + 'next-fight-5h.png', "Next Fight In 5h found", click=False):
+        if locate_and_click(folder_location + 'next-fight-5h.png', "Next Fight In 5h found", click=False, set_confidence=0.95):
             show_dialog("Time to take a break! Next In 6 hours.")
             show_options_dialog()
             break
@@ -75,7 +74,7 @@ def ad_bot_cycle():
 
 def no_ad_bot_cycle():
     while True:
-        if locate_and_click(folder_location + 'next-fight-5h.png', "Next In Fight 5h found", click=False):
+        if locate_and_click(folder_location + 'next-fight-5h.png', "Next In Fight 5h found", click=False, set_confidence=0.95):
             show_dialog("Time to take a break! Next In 6 hours.")
             show_options_dialog()
             break
