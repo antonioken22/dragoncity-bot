@@ -4,7 +4,8 @@ A Dragon City (Windows Desktop) Bot that automates mundane tasks. Works only wit
 
 ## Demo Video
 
-v2: https://youtu.be/OgetBWFXCHU?si=GipKLMLb9a_G-L2L
+v1.1: https://youtu.be/OgetBWFXCHU?si=GipKLMLb9a_G-L2L 
+v1.2: Coming soon...
 
 ## Main Features
 
