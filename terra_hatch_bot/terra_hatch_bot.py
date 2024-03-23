@@ -14,8 +14,8 @@ from options import show_options_dialog
 # Variable declarations
 folder_location = 'terra_hatch_bot/'
 window_name = "Unlimited Terra Hatching"
-game_location = "Divine Orbs Habitat 2 & Hatchery 6"
-image_hint = "Divine Orbs Habitat 2 & Hatchery 6"
+game_location = "Divine Orbs Habitat 2"
+image_hint = "Divine Orbs Habitat 2"
 
 # For terminal printing only
 GREEN = '\033[92m'
