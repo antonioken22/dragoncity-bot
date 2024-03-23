@@ -22,7 +22,7 @@ v2: https://youtu.be/OgetBWFXCHU?si=GipKLMLb9a_G-L2L
 - Watch Hatchery Ads
 - League Auto Combat
 - Dragon Rescue Auto Combat
-- Unli Terra + Terra Breed up to 64 Cycles <-- Latest Feature
+- Unli Terra + Terra Breed up to 40 Cycles <-- Latest Feature
 - Arena Fight to Lose Points <-- Under Development
 - More to come
 

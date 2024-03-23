@@ -27,7 +27,7 @@ uniform_delay = 0.5
 uniform_confidence = 0.8
 uniform_click_delay = 0.25
 
-def locate_and_click(image_path, success_message, click=True, set_confidence=0.8):
+def locate_and_click(image_path, success_message, click=True, set_confidence=0.9):
     try:
         position = pyautogui.locateOnScreen(image_path, confidence=set_confidence)
 
@@ -75,7 +75,7 @@ class BotCyclesDialog(simpledialog.Dialog):
         super().__init__(parent, self.dialog_title)
 
     def body(self, master):
-        self.bot_cycle_choices = [str(i) for i in range(1, 65)]
+        self.bot_cycle_choices = [str(i) for i in range(1, 41)]
         self.var = tk.StringVar()
         self.var.set(self.bot_cycle_choices[0])
 
