@@ -4,9 +4,10 @@ import tkinter as tk
 from tkinter import simpledialog,messagebox
 
 options = ["Collect All Gold and Food", 
-           "Watch DTV Ads", "Skip 6h Ads", 
+           "Watch DTV Ads", 
            "Watch Greenhouse Ads", 
            "League Auto Combat", 
+           "Skip 6h Ads", 
            "Dragon Rescue Auto Combat", 
            "Unli Terra Breed",
            "Unli Terra Hatch", 

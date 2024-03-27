@@ -3,7 +3,9 @@
 A Dragon City (Windows Desktop) Bot that automates mundane tasks. Works only with 1920x1080p desktop resolution.
 
 ## Demo Videos
+
 #### Walkthrough Series (v1.2)
+
 - [Playlist] https://www.youtube.com/playlist?list=PLGbEVRkZKiPsdpjGZQV2hMKW1X9W8094U
 - [Collect Gold and Food] https://youtu.be/OgetBWFXCHU
 - [Watch Dragon TV Island Ads] https://youtu.be/MiOyfTWLmxc
@@ -29,8 +31,8 @@ A Dragon City (Windows Desktop) Bot that automates mundane tasks. Works only wit
 - Collect Gold and Food (up to 9th Island only)
 - Watch Dragon TV Island Ads
 - Watch Greenhouse Building Ads
-- Watch Skip 6h Ads
 - League Auto Combat
+- Watch Skip 6h Ads
 - Dragon Rescue Auto Combat
 - Unli Terra + Terra Breeding (up to 40 Cycles only)
 - Unli Terra Hatching (up to 40 Cycles only) <-- Latest Feature
