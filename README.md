@@ -7,7 +7,7 @@ A Dragon City (Windows Desktop) Bot that automates mundane tasks. Works only wit
 #### Walkthrough Series (v1.2)
 
 - [Playlist] https://www.youtube.com/playlist?list=PLGbEVRkZKiPsdpjGZQV2hMKW1X9W8094U
-- [Collect Gold and Food] https://youtu.be/OgetBWFXCHU
+- [Collect Gold and Food] https://youtu.be/MiOyfTWLmxc
 - [Watch DTV Ads] https://youtu.be/MiOyfTWLmxc
 - [Watch Greenhouse Ads] https://youtu.be/p6nqDr45b5A
 - [League Auto Combat] https://youtu.be/p6nqDr45b5A
