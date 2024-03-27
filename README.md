@@ -29,7 +29,7 @@ A Dragon City (Windows Desktop) Bot that automates mundane tasks. Works only wit
 - Collect Gold and Food (up to 9th Island only)
 - Watch Dragon TV Island Ads
 - Watch Greenhouse Building Ads
-- Watch Hatchery Ads
+- Watch Skip 6h Ads
 - League Auto Combat
 - Dragon Rescue Auto Combat
 - Unli Terra + Terra Breeding (up to 40 Cycles only)
