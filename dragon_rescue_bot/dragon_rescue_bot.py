@@ -2,6 +2,7 @@ import pyautogui
 import ctypes
 import sys
 import os
+import time
 import tkinter as tk
 from tkinter import messagebox, simpledialog
 
@@ -25,16 +26,16 @@ uniform_delay = 0.5
 uniform_confidence = 0.8
 uniform_click_delay = 0.25
 
-def locate_and_click(image_path, image_description, click_times=1, duration=0.01, click=True, set_confidence=0.8):
+def locate_and_click(image_path, image_description, set_confidence=0.8, click=True, click_times=1, click_duration=0.01, pause_duration=0.01):
     try:
         position = pyautogui.locateOnScreen(image_path, confidence=set_confidence)
-
         if position is not None:
             print(GREEN + f"Found {image_description} at: {position}" + RESET)
             if click:
                 pyautogui.moveTo(position, duration=0.66)
-                for _ in range(1, click_times + 1):
-                    pyautogui.click(position, duration=duration)
+                for _ in range(click_times):
+                    pyautogui.click(position, duration=click_duration)
+                    time.sleep(pause_duration)
         return True
     except pyautogui.ImageNotFoundException:
         print(RED + f"Could not locate the {image_path} on the screen." + RESET)
@@ -47,7 +48,7 @@ def show_dialog(message):
 # Bot sequence of tasks
 def bot_cycle():
     while True:
-        if locate_and_click(folder_location + 'claim.png', "Claim Button"):
+        if locate_and_click(folder_location + 'claim.png', "Claim Button", pause_duration=3):
             break
         elif locate_and_click(folder_location + 'key.png', "Key Button"):
             break
@@ -63,8 +64,9 @@ def bot_cycle():
             continue
         elif locate_and_click(folder_location + 'missing-dragon-rescue-text.png', 'Missing Dragon Rescue Text', click=False):
             break
+        elif locate_and_click(folder_location + 'ok.png', 'Ok Button', set_confidence=0.90):
+            continue
         tasks = [
-                (folder_location + 'ok.png', 'Ok Button'),
                 (folder_location + 'start.png', 'Start Button'),
                 (folder_location + 'tap-to-open.png', 'Tap To Open Text'),
             ]
@@ -119,11 +121,19 @@ while confirmation == 'yes':
         print(GREEN + f"{image_hint} is found at: {position}" + RESET)
         while position is not None:
             locate_and_click(folder_location + 'tap-to-open.png', 'Tap To Open Text')
-            locate_and_click(folder_location + 'claim.png', "Claim Button")
+            locate_and_click(folder_location + 'claim.png', "Claim Button", pause_duration=3)
             locate_and_click(folder_location + 'key.png', "Key Button")
-            locate_and_click(folder_location + 'ok.png', 'Ok Button')
+            locate_and_click(folder_location + 'ok.png', 'Ok Button', set_confidence=0.90)
             locate_and_click(folder_location + 'start.png', 'Start Button')
             locate_and_click(folder_location + 'claim-end.png', 'Claim End Button')
+            if (locate_and_click(folder_location + 'skip-all.png', 'Skip All Button', click=False) or locate_and_click(folder_location + 'skip-all-red.png', 'Red Skip All Button', click=False)):
+                if locate_and_click(folder_location + 'disabled-choose-forward.png', "Disabled Choose Forward Button", set_confidence=0.90, click=False):
+                    show_dialog("Time to take a break!")
+                    show_options_dialog()
+                    break
+                else:
+                    locate_and_click(folder_location + 'choose-forward.png', "Choose Forward Button", set_confidence=0.90)
+                continue
             if locate_and_click(folder_location + 'new-rank.png', 'You Achieved A New Rank Text', click=False):
                 locate_and_click(folder_location + 'close.png', "Close Button")
                 continue
@@ -131,16 +141,16 @@ while confirmation == 'yes':
                 show_dialog("Congratulations, Rescue's Over!")
                 show_options_dialog()
                 break
-
             battle = locate_and_click(folder_location + 'battle.png', 'Battle Icon')
             while battle:
-                if team_selected_executed is False: 
-                    team_selected = locate_and_click(folder_location + 'choose-backward.png', 'Choose Backward Button', click_times=selected_team, duration=0.5, set_confidence=0.9)
+                if team_selected_executed is False: # Executed once only after the first team selection
+                    team_selected = locate_and_click(folder_location + 'choose-backward.png', 'Choose Backward Button', click_times=selected_team, click_duration=0.5, set_confidence=0.9)
                     while team_selected:
                         team_selected_executed = True
                         bot_cycle()
                         break
-                elif team_selected_executed is True:
+                elif team_selected_executed is True: # Executed indefinitely after the first team battle end
+                    time.sleep(1)
                     bot_cycle()
                     break
     except pyautogui.ImageNotFoundException:
