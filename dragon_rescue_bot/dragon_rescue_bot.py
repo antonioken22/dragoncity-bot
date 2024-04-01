@@ -126,6 +126,7 @@ while confirmation == 'yes':
             locate_and_click(folder_location + 'ok.png', 'Ok Button', set_confidence=0.90)
             locate_and_click(folder_location + 'start.png', 'Start Button')
             locate_and_click(folder_location + 'claim-end.png', 'Claim End Button')
+            locate_and_click(folder_location + 'close-dragon.png', 'Close Dragon View Button')
             if (locate_and_click(folder_location + 'skip-all.png', 'Skip All Button', click=False) or locate_and_click(folder_location + 'skip-all-red.png', 'Red Skip All Button', click=False)):
                 if locate_and_click(folder_location + 'disabled-choose-forward.png', "Disabled Choose Forward Button", set_confidence=0.90, click=False):
                     show_dialog("Time to take a break!")
