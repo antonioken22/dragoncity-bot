@@ -11,10 +11,11 @@ A Dragon City (Windows Desktop) Bot that automates mundane tasks. Works only wit
 - [Watch DTV Ads] https://youtu.be/MiOyfTWLmxc
 - [Watch Greenhouse Ads] https://youtu.be/p6nqDr45b5A
 - [League Auto Combat] https://youtu.be/p6nqDr45b5A
-- [Watch Skip 6h Ads] https://youtu.be/KXSdh3LvS0s
+- [Skip 6h Ads] https://youtu.be/KXSdh3LvS0s
 - [Dragon Rescue Auto Combat] https://youtu.be/KXSdh3LvS0s
 - [Unli Terra Breeding] Coming soon...
 - [Unli Terra Hatching] Coming soon...
+- [Unli Food Harvest] Coming soon...
 - [Arena Fight to Lose Points] Coming soon...
 - More to come
 
@@ -32,10 +33,11 @@ A Dragon City (Windows Desktop) Bot that automates mundane tasks. Works only wit
 - Watch Dragon TV Island Ads
 - Watch Greenhouse Building Ads
 - League Auto Combat
-- Watch Skip 6h Ads
+- Skip 6h Ads
 - Dragon Rescue Auto Combat
 - Unli Terra + Terra Breeding (up to 40 Cycles only)
-- Unli Terra Hatching (up to 40 Cycles only) <-- Latest Feature
+- Unli Terra Hatching (up to 40 Cycles only)
+- Unli Food Farm Harvest (up to 40 Cycles only) <-- Latest Feature
 - Arena Fight to Lose Points
 - More to come
 

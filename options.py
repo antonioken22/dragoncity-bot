@@ -11,6 +11,7 @@ options = ["Collect All Gold and Food",
            "Dragon Rescue Auto Combat", 
            "Unli Terra Breed",
            "Unli Terra Hatch", 
+           "Unli Food Harvest",
            "Arena Fight to Lose Points",]
 
 class OptionDialog(simpledialog.Dialog):
@@ -60,13 +61,13 @@ def execute_selected_option(selected_option):
         print(f"Selected: {selected_option}")
         script_path = os.path.join(os.path.dirname(__file__), "watch_greenhouse_ad_bot", "watch_greenhouse_ad_bot.py")
         subprocess.run(["python", script_path])
-    elif selected_option == "Skip 6h Ads":  
-        print(f"Selected: {selected_option}")
-        script_path = os.path.join(os.path.dirname(__file__), "skip_6h_bot", "skip_6h_bot.py")
-        subprocess.run(["python", script_path])
     elif selected_option == "League Auto Combat":  
         print(f"Selected: {selected_option}")
         script_path = os.path.join(os.path.dirname(__file__), "league_auto_combat_bot", "league_auto_combat_bot.py")
+        subprocess.run(["python", script_path])
+    elif selected_option == "Skip 6h Ads":  
+        print(f"Selected: {selected_option}")
+        script_path = os.path.join(os.path.dirname(__file__), "skip_6h_bot", "skip_6h_bot.py")
         subprocess.run(["python", script_path])
     elif selected_option == "Dragon Rescue Auto Combat":  
         print(f"Selected: {selected_option}")
@@ -79,6 +80,10 @@ def execute_selected_option(selected_option):
     elif selected_option == "Unli Terra Hatch":  
         print(f"Selected: {selected_option}")
         script_path = os.path.join(os.path.dirname(__file__), "terra_hatch_bot", "terra_hatch_bot.py")
+        subprocess.run(["python", script_path])
+    elif selected_option == "Unli Food Harvest":  
+        print(f"Selected: {selected_option}")
+        script_path = os.path.join(os.path.dirname(__file__), "food_farm_bot", "food_farm_bot.py")
         subprocess.run(["python", script_path])
     elif selected_option == "Arena Fight to Lose Points":  
         print(f"Selected: {selected_option}")
