@@ -4,7 +4,7 @@ import ctypes
 import sys
 import os
 import tkinter as tk
-from tkinter import messagebox
+from tkinter import messagebox, simpledialog
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
@@ -41,16 +41,22 @@ def show_dialog(message):
 
 # Bot sequence of tasks
 def bot_cycle():
+    close_reward_flag = 0
     while True:
         if locate_and_click(folder_location + 'out-of-ads.png', "Out of Ads", click=False):
                 show_dialog("No Ads this time, try again later.")
                 show_options_dialog()
                 break
         elif locate_and_click(folder_location + 'close-reward.png', 'Close Reward Button', delay_execution=5):
+                close_reward_flag = close_reward_flag + 1
                 continue
         elif locate_and_click(folder_location + 'place.png', 'Place Button', click=False):
                 locate_and_click(folder_location + 'close.png', 'Close Button')
                 continue
+        elif (close_reward_flag == selected_cycles):
+            show_dialog(f"Done watching ads for {selected_cycles} times.")
+            show_options_dialog()
+            break
         tasks = [
             (folder_location + 'skip-6h-play-button.png', 'Skip 6h Play Button'),
             (folder_location + 'skip-6h.png', 'Skip 6h Text Button'),
@@ -62,10 +68,38 @@ def bot_cycle():
 root = tk.Tk()
 root.withdraw()
 
+# Confirmation Message
 confirmation = messagebox.askquestion(window_name, "Locate " + game_location + " and make sure it's in MAXIMIZE window mode. "
                                                         "Click which of it you want its time to be reduced by 6 hours. "
                                                         "Ensure it's the FRONTEST program currently running and not blocked by any other program. "
                                                         "\n\nHave you followed everything?")
+
+# Bot Cycles Dropdown
+class BotCyclesDialog(simpledialog.Dialog):
+    def __init__(self, parent):
+        self.dialog_title = "Skip 6h Watch Video Times"
+        self.prompt = "Choose the number of times you want to SKIP 6H for this operation:"
+        super().__init__(parent, self.dialog_title)
+
+    def body(self, master):
+        self.bot_cycle_choices = [str(i) for i in range(1, 9)]
+        self.var = tk.StringVar()
+        self.var.set(self.bot_cycle_choices[0])
+
+        tk.Label(master, text=self.prompt).pack()
+        bot_cycles_dropdown = tk.OptionMenu(master, self.var, *self.bot_cycle_choices)
+        bot_cycles_dropdown.pack()
+
+    def apply(self):
+        self.result = self.var.get()
+
+bot_cycles_dialog_instance = BotCyclesDialog(root)
+selected_cycles = bot_cycles_dialog_instance.result
+if selected_cycles is not None:
+    selected_cycles = int(selected_cycles)
+else:
+    selected_cycles = 0
+    show_options_dialog()
 
 root.destroy()
 
