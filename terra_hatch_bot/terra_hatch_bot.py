@@ -68,6 +68,11 @@ def bot_cycle():
 root = tk.Tk()
 root.withdraw()
 
+# Confirmation Message
+confirmation = messagebox.askquestion(window_name, "Locate " + game_location + " and make sure it's in MAXIMIZE window mode. "
+                                                        "\nIn order for this to work, MAX the ZOOM OUT first then ZOOM IN TWO(2) times by pressing the PLUS(+) button."
+                                                        "\nThen make sure the the HATCHERY 6 is the CLOSEST to the " + game_location + " and you go AFK while this bot is running."
+                                                        "\n\nHave you followed everything?")
 # Bot Cycles Dropdown
 class BotCyclesDialog(simpledialog.Dialog):
     def __init__(self, parent):
@@ -94,12 +99,6 @@ if selected_cycles is not None:
 else:
     selected_cycles = 0
     show_options_dialog()
-
-# Confirmation Message
-confirmation = messagebox.askquestion(window_name, "Locate " + game_location + " and make sure it's in MAXIMIZE window mode. "
-                                                        "\nIn order for this to work, MAX the ZOOM OUT first then ZOOM IN TWO(2) times by pressing the PLUS(+) button."
-                                                        "\nThen make sure the the HATCHERY 6 is the CLOSEST to the " + game_location + " and you go AFK while this bot is running."
-                                                        "\n\nHave you followed everything?")
 
 root.destroy()
 

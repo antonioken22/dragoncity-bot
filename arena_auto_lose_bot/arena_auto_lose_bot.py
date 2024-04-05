@@ -98,6 +98,10 @@ def bot_cycle():
 root = tk.Tk()
 root.withdraw()
 
+# Confirmation Message
+confirmation = messagebox.askquestion(window_name, "Open " + game_location + " and make sure it's in MAXIMIZE window mode. "
+                                                        "Ensure it's the FRONTEST program currently running and not blocked by any other program. \n\nHave you followed everything?")
+
 # Bot Cycles Dropdown
 class BotCyclesDialog(simpledialog.Dialog):
     def __init__(self, parent):
@@ -124,10 +128,6 @@ if selected_cycles is not None:
 else:
     selected_cycles = 0
     show_options_dialog()
-
-# Confirmation Message
-confirmation = messagebox.askquestion(window_name, "Open " + game_location + " and make sure it's in MAXIMIZE window mode. "
-                                                        "Ensure it's the FRONTEST program currently running and not blocked by any other program. \n\nHave you followed everything?")
 
 root.destroy()
 
