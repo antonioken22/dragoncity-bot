@@ -13,10 +13,10 @@ A Dragon City (Windows Desktop) Bot that automates mundane tasks. Works only wit
 - [League Auto Combat] https://youtu.be/p6nqDr45b5A
 - [Skip 6h Ads] https://youtu.be/KXSdh3LvS0s
 - [Dragon Rescue Auto Combat] https://youtu.be/KXSdh3LvS0s
-- [Unli Terra Breeding] Coming soon...
-- [Unli Terra Hatching] Coming soon...
-- [Unli Food Harvest] Coming soon...
-- [Arena Fight to Lose Points] Coming soon...
+- [Unli Terra Breeding] https://youtu.be/UFCI2tmpLag
+- [Unli Terra Hatching] https://youtu.be/UFCI2tmpLag
+- [Unli Food Harvest] https://youtu.be/UFCI2tmpLag
+- [Arena Fight to Lose Points] https://youtu.be/UFCI2tmpLag
 - More to come
 
 ## Main Features
